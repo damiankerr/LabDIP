@@ -12,7 +12,7 @@ public class TipService {
    
    private Tip tip;
    
-   public double getTip(Tip t) {
+   public double getTipForService(Tip t) {
        return t.getTip();
    }
    
