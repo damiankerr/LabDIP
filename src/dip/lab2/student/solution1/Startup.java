@@ -1,6 +1,7 @@
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
+ * https://github.com/damiankerr/LabDIP.git
  */
 package dip.lab2.student.solution1;
 
