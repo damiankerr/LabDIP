@@ -8,7 +8,7 @@ package dip.lab2.student.solution1;
  *
  * @author dkerr
  */
-public class FoodServiceTipCalculator implements Tip {
+public class FoodServiceTipCalculator implements TipCalculator {
     
     private static final double MIN_RATE_AMT = 0.00;
     private static final double MIN_BILL_AMT = 0.00;
@@ -20,11 +20,8 @@ public class FoodServiceTipCalculator implements Tip {
     private double poorRate;
     private double bill;
     
-    public enum ServiceQuality {
-        GOOD, FAIR, POOR
-    }
-    private ServiceQuality serviceQuality;
-    
+    private TipCalculator.ServiceQuality serviceQuality;
+        
     public FoodServiceTipCalculator(ServiceQuality sq, double billAmt) {
         this.goodRate = 0.20;
         this.fairRate = 0.15;
@@ -96,11 +93,13 @@ public class FoodServiceTipCalculator implements Tip {
         this.bill = bill;
     }
 
+    @Override
     public ServiceQuality getServiceQuality() {
         return serviceQuality;
     }
 
-    public final void setServiceQuality(ServiceQuality sq) {
+    @Override
+    public void setServiceQuality(ServiceQuality sq) {
         this.serviceQuality = sq;
     }
     

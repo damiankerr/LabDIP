@@ -8,7 +8,7 @@ package dip.lab2.student.solution1;
  *
  * @author dkerr
  */
-public class BaggageServiceTipCalculator implements Tip{
+public class BaggageServiceTipCalculator implements TipCalculator{
 
     private static final double MIN_BILL_AMT = 0.00;
     private static final double MIN_RATE_AMT = 0.00;
@@ -25,10 +25,8 @@ public class BaggageServiceTipCalculator implements Tip{
     private double baseTipPerBag;
     private int bagCount;
 
-    public enum ServiceQuality {
-        GOOD, FAIR, POOR
-    }
-    private ServiceQuality serviceQuality;
+    private TipCalculator.ServiceQuality serviceQuality;
+    
 
     public BaggageServiceTipCalculator(ServiceQuality sq, int numOfBags, double baseTipPerBag) {
         this.goodRate = 0.20;
@@ -115,10 +113,13 @@ public class BaggageServiceTipCalculator implements Tip{
         this.bagCount = bagCount;
     }
 
+    
+    @Override
     public ServiceQuality getServiceQuality() {
         return serviceQuality;
     }
 
+    @Override
     public void setServiceQuality(ServiceQuality sq) {
         this.serviceQuality = sq;
     }
